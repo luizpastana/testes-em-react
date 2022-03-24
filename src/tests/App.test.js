@@ -37,4 +37,12 @@ describe('Testa se a aplicação contém um conjunto fixo de links de navegaçã
     const favoriteTitle = screen.getByRole('heading', { name: /Favorite Pokémons/i });
     expect(favoriteTitle).toBeInTheDocument();
   });
+
+  it('Testa uma pagina inexistente', () => {
+    const { history } = renderWithRouter(<App />);
+    history.push('/pagina');
+    const notFoundTitle = screen.getByRole('heading',
+      { name: /Page requested not found/i });
+    expect(notFoundTitle).toBeInTheDocument();
+  });
 });
