@@ -18,7 +18,7 @@ describe('Testa se a pagina "About" contém as informações sobre a Pokedex', (
   it('Testa se a pagina contém dois paragrafos sobre a pokedex', () => {
     const { history } = renderWithRouter(<App />);
     history.push('/about');
-    const paragrafos = screen.getAllByRole('paragraph');
+    const paragrafos = document.querySelectorAll('p');
     console.log(paragrafos);
     expect(paragrafos.length).toBe(2);
   });
